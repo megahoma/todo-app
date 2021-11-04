@@ -1,0 +1,24 @@
+{
+  "tasks": [
+    {
+      "task": "Learn JavaScript",
+      "completed": true
+    },
+    {
+      "task": "Learn TypeScript",
+      "completed": false
+    },
+    {
+      "task": "Learn Python",
+      "completed": true
+    },
+    {
+      "task": "Learn C#",
+      "completed": false
+    },
+    {
+      "task": "Learn C++",
+      "completed": false
+    }
+  ]
+}
