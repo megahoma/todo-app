@@ -11,6 +11,7 @@ import Header from './components/Header'
 import AddTask from './components/AddTask'
 import TodoList from './components/TodoList'
 import FilterTask from './components/FilterTask'
+import Footer from './components/Footer'
 
 import GlobalStyle from './styles/global'
 import { Container, TodoContainer } from './styles'
@@ -38,6 +39,7 @@ const App = () => {
           <TodoList />
           <FilterTask />
         </TodoContainer>
+        <Footer />
       </Container>
     </ThemeProvider>
   )
