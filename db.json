@@ -1,24 +1,34 @@
 {
   "tasks": [
     {
-      "task": "Learn JavaScript",
+      "id": 1,
+      "task": "Complete online JavaScript course",
       "completed": true
     },
     {
-      "task": "Learn TypeScript",
-      "completed": false
+      "task": "Jog around the park 3x",
+      "completed": true,
+      "id": 2
     },
     {
-      "task": "Learn Python",
-      "completed": true
+      "task": "10 minutes meditation",
+      "completed": false,
+      "id": 3
     },
     {
-      "task": "Learn C#",
-      "completed": false
+      "task": "Read for 1 hour",
+      "completed": false,
+      "id": 4
     },
     {
-      "task": "Learn C++",
-      "completed": false
+      "task": "Pick up groceries",
+      "completed": false,
+      "id": 5
+    },
+    {
+      "task": "Complete Todo App on Frontend Mentor",
+      "completed": false,
+      "id": 6
     }
   ]
 }

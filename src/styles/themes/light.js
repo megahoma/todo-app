@@ -3,10 +3,15 @@ export default {
 
   colors: {
     iconSwitch: './images/icon-sun.svg',
+    iconCheck: './images/icon-check.svg',
     backgroundHeaderDesktop: './images/bg-desktop-light.jpg',
     backgroundHeaderMobile: './images/bg-mobile-light.jpg',
 
-    background: 'hsl(0, 0%, 98%)',
-    text: '#000',
+    background: '#fafafa',
+    backgroundTable: '#ffffff',
+
+    text: '#fff',
+    textTable: 'hsl(235, 19%, 35%)',
+    textBorderTable: 'hsl(233, 11%, 84%)',
   },
 }

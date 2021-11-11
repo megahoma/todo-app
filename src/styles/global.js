@@ -1,6 +1,10 @@
 import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
+  :root{
+    --checkBackground: hsl(220, 98%, 61%);
+  }
+
   * {
     margin: 0;
     padding: 0;

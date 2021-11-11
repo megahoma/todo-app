@@ -7,9 +7,11 @@ import { initTasks } from './ducks/actions/tasksAction'
 import light from './styles/themes/light'
 import dark from './styles/themes/dark'
 
+import Header from './components/Header'
+import TodoList from './components/TodoList'
+
 import GlobalStyle from './styles/global'
 import { Container, TodoContainer } from './styles'
-import Header from './components/Header'
 
 const App = () => {
   const dispatch = useDispatch()
@@ -26,8 +28,12 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
+
       <Container>
         <Header toggleTheme={toggleTheme} />
+        <TodoContainer>
+          <TodoList />
+        </TodoContainer>
       </Container>
     </ThemeProvider>
   )
