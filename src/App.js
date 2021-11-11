@@ -8,6 +8,7 @@ import light from './styles/themes/light'
 import dark from './styles/themes/dark'
 
 import Header from './components/Header'
+import AddTask from './components/AddTask'
 import TodoList from './components/TodoList'
 
 import GlobalStyle from './styles/global'
@@ -32,6 +33,7 @@ const App = () => {
       <Container>
         <Header toggleTheme={toggleTheme} />
         <TodoContainer>
+          <AddTask />
           <TodoList />
         </TodoContainer>
       </Container>

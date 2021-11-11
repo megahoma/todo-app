@@ -1,24 +1,17 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-  margin: 0 auto;
-  padding: 0 35px 0 35px;
-  @media (min-width: 600px) {
-    width: 37rem;
-  }
-`
+export const Container = styled.div``
 
 export const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.1);
 
   background-color: ${(props) => props.theme.colors.backgroundTable};
   font-size: 1rem;
 `
-
 export const TableCell = styled.td`
   padding: 20px 0 20px 0;
   color: ${(props) => props.theme.colors[props.color]};
@@ -36,40 +29,32 @@ export const TableCell = styled.td`
   }
 `
 
-export const TableCheck = styled.label``
+export const TableCheck = styled.button`
+  width: 25px;
+  height: 25px;
+  margin-right: 1.5em;
+  border: 1.5px solid ${(props) => props.theme.colors.textBorderTable};
+  border-radius: 50%;
+  background-color: ${(props) => props.theme.colors.backgroundTable};
+  cursor: pointer;
 
-export const TableCompleted = styled.input`
-  & {
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
-  }
-
-  & + ${TableCheck} {
-    display: inline-flex;
-    align-items: center;
-    user-select: none;
-    cursor: pointer;
-  }
-  & + ${TableCheck}::before {
-    content: '';
-    display: inline-block;
-    width: 1.3em;
-    height: 1.3em;
-    border: 1.5px solid ${(props) => props.theme.colors.textBorderTable};
-    border-radius: 50%;
-    margin-right: 0.5em;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-  &:checked + ${TableCheck}::before {
+  &:hover {
     border-color: var(--checkBackground);
-    background-color: var(--checkBackground);
-
-    background-image: url(${(props) => props.theme.colors.iconCheck});
   }
-  & + ${TableCheck}:hover::before {
+`
+export const TableCompleted = styled.button`
+  width: 25px;
+  height: 25px;
+  margin-right: 1.5em;
+  border: 1.5px solid ${(props) => props.theme.colors.textBorderTable};
+  border-radius: 50%;
+  background-color: var(--checkBackground);
+  background-image: url(${(props) => props.theme.colors.iconCheck});
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+
+  &:hover {
     border-color: var(--checkBackground);
   }
 `

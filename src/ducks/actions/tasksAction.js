@@ -12,6 +12,18 @@ const initTasks = () => {
   }
 }
 
+const addTask = (newTask) => {
+  return async (dispatch) => {
+    try {
+      const res = await axios.post('/tasks', newTask)
+      dispatch({
+        type: 'ADD-TASK',
+        payload: res.data,
+      })
+    } catch (err) {}
+  }
+}
+
 const updateTask = (task) => {
   return async (dispatch) => {
     try {
@@ -39,4 +51,4 @@ const deleteTask = (id) => {
   }
 }
 
-export { initTasks, updateTask, deleteTask }
+export { initTasks, addTask, updateTask, deleteTask }

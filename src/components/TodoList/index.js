@@ -39,15 +39,23 @@ const TodoList = () => {
           {tasks.map((task, i) => (
             <TableRow key={i}>
               <TableCell>
-                <TableCompleted
-                  type="checkbox"
-                  defaultChecked={task.completed}
-                />
-                <TableCheck
-                  onClick={() => {
-                    handleCheked(task)
-                  }}
-                />
+                {task.completed ? (
+                  <>
+                    <TableCompleted
+                      onClick={() => {
+                        handleCheked(task)
+                      }}
+                    />
+                  </>
+                ) : (
+                  <>
+                    <TableCheck
+                      onClick={() => {
+                        handleCheked(task)
+                      }}
+                    />
+                  </>
+                )}
               </TableCell>
               <TableCell
                 color={task.completed ? 'textBorderTable' : 'textTable'}

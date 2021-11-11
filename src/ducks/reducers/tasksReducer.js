@@ -5,6 +5,8 @@ const infoReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'INIT-TASKS':
       return { ...state, tasks: action.payload }
+    case 'ADD-TASK':
+      return { ...state, tasks: [...state.tasks, action.payload] }
     case 'UPDATE-TASK':
       return {
         ...state,

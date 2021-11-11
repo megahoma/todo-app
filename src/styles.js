@@ -15,4 +15,10 @@ export const Container = styled.div`
   }
 `
 
-export const TodoContainer = styled.div``
+export const TodoContainer = styled.div`
+  margin: 0 auto;
+  padding: 0 35px 0 35px;
+  @media (min-width: 600px) {
+    width: 37rem;
+  }
+`
