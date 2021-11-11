@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex;
   margin-bottom: 30px;
-  padding: 20px 0 20px 15px;
+  padding: 20px 0 20px 25px;
   border-radius: 5px;
   background-color: ${(props) => props.theme.colors.backgroundTable};
   box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.1);

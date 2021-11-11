@@ -1,13 +1,13 @@
 {
   "tasks": [
     {
-      "id": 1,
       "task": "Complete online JavaScript course",
-      "completed": true
+      "completed": false,
+      "id": 1
     },
     {
       "task": "Jog around the park 3x",
-      "completed": true,
+      "completed": false,
       "id": 2
     },
     {
@@ -29,6 +29,11 @@
       "task": "Complete Todo App on Frontend Mentor",
       "completed": false,
       "id": 6
+    },
+    {
+      "task": "Added filter ",
+      "completed": true,
+      "id": 7
     }
   ]
 }

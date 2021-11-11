@@ -16,7 +16,18 @@ import {
 const TodoList = () => {
   const dispatch = useDispatch()
   const tasks = useSelector((state) => {
-    return state.tasks.tasks
+    const tasks = state.tasks.tasks
+    const filter = state.tasks.filter.filter((item) => item.active)[0].title
+
+    if ('All' === filter) {
+      return tasks
+    } else if ('Active' === filter) {
+      return tasks.filter((item) => !item.completed)
+    } else if ('Completed' === filter) {
+      return tasks.filter((item) => item.completed)
+    }
+
+    return tasks
   })
 
   const handleCheked = (task) => {
@@ -26,11 +37,6 @@ const TodoList = () => {
   const handleDelete = (id) => {
     dispatch(deleteTask(id))
   }
-
-  try {
-    console.log(tasks[0].completed ? 'textBorderTable' : 'textTable')
-    console.log(tasks[0].completed ? 'line-through' : 'none')
-  } catch (error) {}
 
   return (
     <Container>

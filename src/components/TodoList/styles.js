@@ -6,7 +6,7 @@ export const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-  border-radius: 5px;
+  border-radius: 5px 5px 0 0;
   box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.1);
 
   background-color: ${(props) => props.theme.colors.backgroundTable};
@@ -19,13 +19,13 @@ export const TableCell = styled.td`
 
   &:first-child {
     width: 20px;
-    padding-left: 15px;
+    padding-left: 25px;
     padding-right: 10px;
   }
   &:last-child {
     width: 20px;
     padding-left: 10px;
-    padding-right: 15px;
+    padding-right: 25px;
   }
 `
 
@@ -78,10 +78,6 @@ export const TableDelete = styled.div`
 export const TableBody = styled.tbody``
 export const TableRow = styled.tr`
   border-bottom: 1px solid ${(props) => props.theme.colors.textBorderTable};
-
-  &:last-child {
-    border-bottom: 0px;
-  }
 
   @media (min-width: 600px) {
     &:hover ${TableDelete} {

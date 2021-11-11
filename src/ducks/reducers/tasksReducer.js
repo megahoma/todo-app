@@ -1,5 +1,10 @@
 const initialState = {
   tasks: [],
+  filter: [
+    { title: 'All', active: true },
+    { title: 'Active', active: false },
+    { title: 'Completed', active: false },
+  ],
 }
 const infoReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -16,12 +21,23 @@ const infoReducer = (state = initialState, action) => {
             : task
         ),
       }
-    case 'DELETE-TASK': {
+    case 'DELETE-TASK':
       return {
         ...state,
         tasks: state.tasks.filter((task) => task.id !== action.payload),
       }
-    }
+    case 'CLEAR-COMPLETED':
+      return { ...state, tasks: state.tasks.filter((task) => !task.completed) }
+
+    case 'FILTER-UPDATE':
+      return {
+        ...state,
+        filter: state.filter.map((item) =>
+          item.title === action.payload
+            ? { ...item, active: true }
+            : { ...item, active: false }
+        ),
+      }
 
     default:
       return state

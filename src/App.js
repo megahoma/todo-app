@@ -10,6 +10,7 @@ import dark from './styles/themes/dark'
 import Header from './components/Header'
 import AddTask from './components/AddTask'
 import TodoList from './components/TodoList'
+import FilterTask from './components/FilterTask'
 
 import GlobalStyle from './styles/global'
 import { Container, TodoContainer } from './styles'
@@ -35,6 +36,7 @@ const App = () => {
         <TodoContainer>
           <AddTask />
           <TodoList />
+          <FilterTask />
         </TodoContainer>
       </Container>
     </ThemeProvider>

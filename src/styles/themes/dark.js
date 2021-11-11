@@ -11,6 +11,7 @@ export default {
     backgroundTable: '#25273c',
 
     text: '#fff',
+    primary: 'hsl(220, 98%, 61%)',
     textTable: 'hsl(236, 33%, 92%)',
     textBorderTable: 'hsl(233, 14%, 35%)',
   },

@@ -51,4 +51,23 @@ const deleteTask = (id) => {
   }
 }
 
-export { initTasks, addTask, updateTask, deleteTask }
+const clearCompleted = () => {
+  return async (dispatch, getState) => {
+    dispatch({ type: 'CLEAR-COMPLETED' })
+  }
+}
+
+const filterUpdate = (filter) => {
+  return async (dispatch) => {
+    dispatch({ type: 'FILTER-UPDATE', payload: filter })
+  }
+}
+
+export {
+  initTasks,
+  addTask,
+  updateTask,
+  deleteTask,
+  clearCompleted,
+  filterUpdate,
+}
