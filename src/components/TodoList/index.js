@@ -1,17 +1,11 @@
 import React from 'react'
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteTask, updateTask } from '../../ducks/actions/tasksAction'
+import { swapTask } from '../../ducks/actions/tasksAction'
 
-import {
-  Container,
-  Table,
-  TableBody,
-  TableRow,
-  TableCell,
-  TableCompleted,
-  TableCheck,
-  TableDelete,
-} from './styles'
+import Task from './Task'
+
+import { Container, ListTasks } from './styles'
 
 const TodoList = () => {
   const dispatch = useDispatch()
@@ -30,57 +24,53 @@ const TodoList = () => {
     return tasks
   })
 
-  const handleCheked = (task) => {
-    dispatch(updateTask(task))
-  }
+  const handleOnDragEnd = (result) => {
+    if (!result.destination) return
 
-  const handleDelete = (id) => {
-    dispatch(deleteTask(id))
+    const items = Array.from(tasks)
+    const [reorderedItem] = items.splice(result.source.index, 1)
+    items.splice(result.destination.index, 0, reorderedItem)
+
+    dispatch(swapTask(items))
   }
 
   return (
-    <Container>
-      <Table>
-        <TableBody>
-          {tasks.map((task, i) => (
-            <TableRow key={i}>
-              <TableCell>
-                {task.completed ? (
-                  <>
-                    <TableCompleted
-                      onClick={() => {
-                        handleCheked(task)
-                      }}
-                    />
-                  </>
-                ) : (
-                  <>
-                    <TableCheck
-                      onClick={() => {
-                        handleCheked(task)
-                      }}
-                    />
-                  </>
-                )}
-              </TableCell>
-              <TableCell
-                color={task.completed ? 'textBorderTable' : 'textTable'}
-                decoration={task.completed ? 'line-through' : 'none'}
+    <>
+      <Container>
+        <DragDropContext onDragEnd={handleOnDragEnd}>
+          <Droppable droppableId="characters">
+            {(provided) => (
+              <ListTasks
+                className="characters"
+                {...provided.droppableProps}
+                ref={provided.innerRef}
               >
-                {task.task}
-              </TableCell>
-              <TableCell>
-                <TableDelete
-                  onClick={() => {
-                    handleDelete(task.id)
-                  }}
-                ></TableDelete>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </Container>
+                {tasks.map((task, index) => {
+                  return (
+                    <Draggable
+                      key={task.id}
+                      draggableId={task.id}
+                      index={index}
+                    >
+                      {(provided) => (
+                        <div
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                        >
+                          <Task task={task} />
+                        </div>
+                      )}
+                    </Draggable>
+                  )
+                })}
+                {provided.placeholder}
+              </ListTasks>
+            )}
+          </Droppable>
+        </DragDropContext>
+      </Container>
+    </>
   )
 }
 

@@ -63,6 +63,12 @@ const filterUpdate = (filter) => {
   }
 }
 
+const swapTask = (items) => {
+  return async (dispatch) => {
+    dispatch({ type: 'SWAP-TASK', payload: items })
+  }
+}
+
 export {
   initTasks,
   addTask,
@@ -70,4 +76,5 @@ export {
   deleteTask,
   clearCompleted,
   filterUpdate,
+  swapTask,
 }

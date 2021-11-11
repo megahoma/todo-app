@@ -38,6 +38,11 @@ const infoReducer = (state = initialState, action) => {
             : { ...item, active: false }
         ),
       }
+    case 'SWAP-TASK':
+      return {
+        ...state,
+        tasks: action.payload,
+      }
 
     default:
       return state

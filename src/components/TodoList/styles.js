@@ -2,8 +2,9 @@ import styled from 'styled-components'
 
 export const Container = styled.div``
 
-export const Table = styled.table`
+export const ListTasks = styled.ul`
   width: 100%;
+  list-style: none;
   border-collapse: collapse;
   border-spacing: 0;
   border-radius: 5px 5px 0 0;
@@ -12,24 +13,8 @@ export const Table = styled.table`
   background-color: ${(props) => props.theme.colors.backgroundTable};
   font-size: 1rem;
 `
-export const TableCell = styled.td`
-  padding: 20px 0 20px 0;
-  color: ${(props) => props.theme.colors[props.color]};
-  text-decoration: ${(props) => props.decoration};
 
-  &:first-child {
-    width: 20px;
-    padding-left: 25px;
-    padding-right: 10px;
-  }
-  &:last-child {
-    width: 20px;
-    padding-left: 10px;
-    padding-right: 25px;
-  }
-`
-
-export const TableCheck = styled.button`
+export const ButtonCheck = styled.button`
   width: 25px;
   height: 25px;
   margin-right: 1.5em;
@@ -42,7 +27,7 @@ export const TableCheck = styled.button`
     border-color: var(--checkBackground);
   }
 `
-export const TableCompleted = styled.button`
+export const ButtonCompleted = styled.button`
   width: 25px;
   height: 25px;
   margin-right: 1.5em;
@@ -59,7 +44,19 @@ export const TableCompleted = styled.button`
   }
 `
 
-export const TableDelete = styled.div`
+export const TextTask = styled.p`
+  width: 78%;
+  color: ${(props) => props.theme.colors[props.color]};
+  text-decoration: ${(props) => props.decoration};
+
+  @media (min-width: 600px) {
+    & {
+      width: 83%;
+    }
+  }
+`
+
+export const ButtonDelete = styled.p`
   & {
     display: block;
     width: 20px;
@@ -74,13 +71,15 @@ export const TableDelete = styled.div`
     display: none;
   }
 `
-
-export const TableBody = styled.tbody``
-export const TableRow = styled.tr`
+export const TaskContainer = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px 0 20px 25px;
   border-bottom: 1px solid ${(props) => props.theme.colors.textBorderTable};
 
   @media (min-width: 600px) {
-    &:hover ${TableDelete} {
+    &:hover ${ButtonDelete} {
       display: block;
     }
   }
